@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 //#region Refering to the packages
 
 var Discord = require('discord.js');
@@ -169,7 +171,7 @@ bot.on('message', (message) => {
 bot.on('ready', async () => {
 
     bot.user.setActivity("Area-ALPHA.-------------------------- Bot made by Ddogwildone1.", { type: "WATCHING" })
-    await rbxbot.setCookie(config.Cookie);
+    await rbxbot.setCookie(process.env.Cookie);
     joinlog(bot)
     await mongo().then(mongoose => {
         try {
@@ -186,6 +188,6 @@ bot.on('ready', async () => {
 //#endregion
 
 //#region Bot Login
-bot.login(config.Cookie)
-bot.login(config.Token)
+bot.login(process.env.Cookie)
+bot.login(process.env.Token)
 //#endregion
