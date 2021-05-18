@@ -21,19 +21,7 @@ for (const file of commandfiles) {
 
 const joinlog = require('./Alwaysrunning/Joinlogs')
 const mongo = require('./Alwaysrunning/mongo')
-const roleconfig = [
-    { rolename: 'O5 Council', rank: 11, roleid: '772517107853950999' },
-    { rolename: 'Site Director', rank: 10, roleid: '772517114635878451' },
-    { rolename: 'Level-5', rank: 9, roleid: '772517109087469569' },
-    { rolename: 'Level-4', rank: 8, roleid: '772517110257418240' },    
-    { rolename: 'Level-3', rank: 7, roleid: '772517110541713408' },
-    { rolename: 'Level-2', rank: 6, roleid: '772517111427891220' },
-    { rolename: 'Level-1', rank: 5, roleid: '772517111489757206' },
-    { rolename: 'Level-0', rank: 4, roleid: '772517112501239818' },
-    { rolename: 'Class-A', rank: 3, roleid: '772517112522211418' },
-    { rolename: 'Class-E', rank: 2, roleid: '825217394044960770' },
-    { rolename: 'Class-D', rank: 1, roleid: '772517113239568385' }
-]
+
 //#endregion
 
 // Message listener
