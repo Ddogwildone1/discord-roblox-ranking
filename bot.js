@@ -1,7 +1,8 @@
-require('dotenv').config()
+
 
 //#region Refering to the packages
 
+require('dotenv').config()
 var Discord = require('discord.js');
 var rbxbot = require('noblox.js');
 var bot = new Discord.Client();

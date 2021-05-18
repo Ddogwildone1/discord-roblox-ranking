@@ -4,11 +4,11 @@ var config = require(`../config.json`)
 
 module.exports = {
 
-    name: 'Checkin',
-    description: 'Checkin ......',
+  name: 'Checkin',
+  description: 'Checkin ......',
 
-    execute(message, msg) {
-        message.reply("Command under development.")
-    }
-
+  execute(message, msg) {
+    message.reply("Command under development.")
+  }
 }
+
