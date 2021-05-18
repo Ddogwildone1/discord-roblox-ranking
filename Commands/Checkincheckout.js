@@ -8,7 +8,7 @@ module.exports = {
   description: 'Checkincheckout ......',
 
   execute(message, msg) {
-    if (message.startWith(">checkin")) {
+    if (message.startsWith(">checkin")) {
       message.reply("Checkin was called.")
     } else if (message.startsWith(">checkout")) {
       message.reply("Checkout was called.")
