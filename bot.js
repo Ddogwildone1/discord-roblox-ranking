@@ -150,6 +150,16 @@ bot.on('message', (message) => {
         return;
     }
 
+    if (msg.startsWith(prefix + 'checkin')) {
+        bot.commands.get('Checkincheckout').execute(message, msg);
+        return;
+    }
+
+    if (msg.startsWith(prefix + 'checkout')) {
+        bot.commands.get('Checkincheckout').execute(message, msg);
+        return;
+    }
+
     /*if (msg.startsWith(prefix + '')) {
         bot.commands.get('').execute(message, msg)
         return
