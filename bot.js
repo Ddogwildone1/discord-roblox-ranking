@@ -137,8 +137,13 @@ bot.on('message', (message) => {
         return;
     }
 
-    if (msg.startsWith(prefix + 'checkin') || msg.startsWith(prefix + 'checkout')) {
-        bot.commands.get('Checkincheckout').execute(message, msg, args, config);
+    if (msg.startsWith(prefix + 'checkout')) {
+        bot.commands.get('Checkout').execute(message, msg, args, config);
+        return;
+    }
+
+    if (msg.startsWith(prefix + 'checkin')) {
+        bot.commands.get('Checkin').execute(message, msg, args, config);
         return;
     }
 
