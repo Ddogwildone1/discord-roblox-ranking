@@ -26,7 +26,7 @@ module.exports = {
     execute(message, msg) {
 
         if (message.guild.roles.cache.has('765389005084295229')) {
-            var logsChannel = message.channel.guild.channels.cache.get('773011073950941216')
+            var logsChannel = message.channel.guild.channels.cache.get('846821373917134898')
             const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
             channels.forEach(channel => {
 

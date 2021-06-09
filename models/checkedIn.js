@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
-const timeLogSchema = new Schema({
+const checkedInSchema = new Schema({
     discordid: {
         type: String,
         required: true,
         unique: true
     },
-    totaltime: {
+    checkedintimestamp: {
         type: Number,
         required: true
     },
@@ -15,7 +15,7 @@ const timeLogSchema = new Schema({
         type: String,
         required: true
     }
-}, { timestamps: true });
+}, { timestamps: false });
 
-const timeLog = mongoose.model('timeLog', timeLogSchema, 'timeLogs');
-module.exports = timeLog;
+const checkedIn = mongoose.model('checkedIn', checkedInSchema, 'checkedIns');
+module.exports = checkedIn;

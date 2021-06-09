@@ -9,7 +9,7 @@ module.exports = {
 
     async execute(message, msg, args) {
 
-        var suggestionChannel = message.channel.guild.channels.cache.get('773011073950941216')
+        var suggestionChannel = message.channel.guild.channels.cache.get('846821373917134898')
         const robloxname = args[1]
         const robloxid = await rbxbot.getIdFromUsername(robloxname)
             .then(async (robloxid) => {

@@ -14,6 +14,7 @@ module.exports = {
         const filter = (m) => m.author.id === message.author.id
         suggestiontickets.set(message.author, message)
 
+        console.log(suggestiontickets)
         let msg1 = await message.reply("What do you what the title of your suggestion to be?")
         let response1 = await (message.channel.awaitMessages(filter, { max: 1 }))
             .then(async (response1) => {

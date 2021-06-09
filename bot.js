@@ -1,5 +1,4 @@
 
-
 //#region Refering to the packages
 
 require('dotenv').config()
@@ -138,15 +137,23 @@ bot.on('message', (message) => {
         return;
     }
 
-    if (msg.startsWith(prefix + 'checkin')) {
-        bot.commands.get('Checkincheckout').execute(message, msg);
+    if (msg.startsWith(prefix + 'checkin') || msg.startsWith(prefix + 'checkout')) {
+        bot.commands.get('Checkincheckout').execute(message, msg, args, config);
         return;
     }
 
-    if (msg.startsWith(prefix + 'checkout')) {
-        bot.commands.get('Checkincheckout').execute(message, msg);
-        return;
+    /*
+    if (msg.startsWith(prefix + 'rank')) {
+        if (message.member.roles.cache.has("794686535982383125")) {
+            bot.commands.get('Rank').execute(message, msg, args, config);
+            return;
+        }
+        else {
+            message.reply('You do not have the required role(s) to preform this action. (Rank Updater)')
+            return;
+        }
     }
+    */
 
     /*if (msg.startsWith(prefix + '')) {
         bot.commands.get('').execute(message, msg)
@@ -169,9 +176,9 @@ bot.on('message', (message) => {
 //#region Terminal reply + continuous commands
 bot.on('ready', async () => {
 
-    bot.user.setActivity("Area-ALPHA.-------------------------- Bot made by Ddogwildone1.", { type: "WATCHING" })
+    bot.user.setActivity(">help -------------------------------- Bot made by Ddogwildone1.", { type: "LISTENING" })
     await rbxbot.setCookie(process.env.Cookie);
-    joinlog(bot)
+    //joinlog(bot)
     await mongo().then(mongoose => {
         try {
             console.log('Connected to mongo!')

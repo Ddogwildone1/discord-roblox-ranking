@@ -8,7 +8,7 @@ module.exports = {
     description: 'Purge .....',
 
     async execute(message, msg, args) {
-        var logsChannel = message.channel.guild.channels.cache.get('773011073950941216')
+        var logsChannel = message.channel.guild.channels.cache.get('846821373917134898')
         const Numberofmsg = parseInt(args[1])
 
         if (Numberofmsg > 100) {
