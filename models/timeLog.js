@@ -9,7 +9,6 @@ const timeLogSchema = new Schema({
     },
     totaltime: {
         type: Number,
-        required: true
     },
     guildid: {
         type: String,

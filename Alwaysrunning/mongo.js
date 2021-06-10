@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
-const { dbURI } = require('../config.json')
+require('dotenv').config()
 
 module.exports = async () => {
-    await mongoose.connect(dbURI, {
+    await mongoose.connect(process.env.Dburi, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
         useFindAndModify: false,
