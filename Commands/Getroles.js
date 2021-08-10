@@ -2,30 +2,24 @@ var Discord = require('discord.js')
 var rbxbot = require(`noblox.js`)
 var mongoose = require('mongoose')
 var config = require(`../config.json`)
-var { roleconfig } = require(`../bot`)
 var mongo = require('../Alwaysrunning/mongo')
 const verifiedUserModel = require('../models/verifiedUser')
 const roleListTest = [
-    '772517107853950999',
-    '772517114635878451',
-    '772517109087469569',
-    '772517110257418240',
-    '772517110541713408',
-    '772517111427891220',
-    '772517111489757206',
-    '772517112501239818',
-    '772517112522211418',
-    '825217394044960770',
-    '772517113239568385'
+    "860182762744053780",
+    "860182682738884628",
+    "859279089504747531",
+    "859279048109719552",
+    "859279006683889664",
+    "860182636369936404"
 ]
 
 
 module.exports = {
 
-    name: 'Getroles',
+    name: 'getroles',
     description: 'Getroles ......',
 
-    async execute(message, msg, bot) {
+    async execute(message, args) {
         const currentDiscordId = message.member.id
         await mongo().then(async (mongoose) => {
             try {
@@ -38,12 +32,8 @@ module.exports = {
                 })
                 const verifiedRobloxName = verifiedUser.robloxname
                 const verifiedRobloxId = verifiedUser.robloxid
-                console.log(verifiedUser)
-                console.log(verifiedRobloxName)
-                console.log(verifiedRobloxId)
 
                 message.reply('This may take a while, up to a minute.')
-                message.member.send('If you loose your permissions for more than one minute, contact Ddogwildone1.')
                 await rbxbot.getRankNameInGroup(config.GroupID, verifiedRobloxId)
                     .then(async (groupRank) => {
                         console.log(groupRank)
@@ -57,10 +47,10 @@ module.exports = {
                         }
                         if (groupRank === 'Guest') {
                             let ClassDRole = await message.guild.roles.cache.find((role) => {
-                                return role.name === 'Class-D'
+                                return role.name === 'Member'
                             })
                             await message.member.roles.add(ClassDRole)
-                            await message.member.setNickname(`${verifiedRobloxName} | Class-D`)
+                            await message.member.setNickname(`${verifiedRobloxName} | Member`)
                         } else {
                             await message.member.roles.add(verifiedRole)
                             await message.member.setNickname(`${verifiedRobloxName} | ${groupRank}`)

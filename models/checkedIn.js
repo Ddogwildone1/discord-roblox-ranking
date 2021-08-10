@@ -14,6 +14,10 @@ const checkedInSchema = new Schema({
     guildid: {
         type: String,
         required: true
+    },
+    guildname: {
+        type: String,
+        required: true
     }
 }, { timestamps: false });
 

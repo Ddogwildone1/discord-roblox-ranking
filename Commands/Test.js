@@ -1,13 +1,13 @@
 var Discord = require('discord.js')
+var Roblox = require('noblox.js')
+var { GroupID } = require('../config.json')
 
 module.exports = {
 
-    name: 'Test',
+    name: 'test',
     description: 'Test ......',
 
-    execute(message, msg) {
-        message.reply("Bot is online.")
+    execute(message, args) {
+        message.reply('Bot is online.')
     }
-
 }
-

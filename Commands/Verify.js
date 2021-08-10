@@ -8,10 +8,10 @@ const mongo = require('../Alwaysrunning/mongo')
 
 module.exports = {
 
-    name: 'Verify',
+    name: 'verify',
     description: 'Verify ......',
 
-    async execute(message, msg) {
+    async execute(message, args) {
         const number = Math.floor(Math.random() * 24) + 1
         const getRandomSentence = randomCode[number]
         const filter = (m) => m.author.id === message.author.id

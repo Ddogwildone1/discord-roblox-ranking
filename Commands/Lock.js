@@ -21,11 +21,11 @@ const ignored = new Set([
 
 module.exports = {
 
-    name: 'Lock',
+    name: 'lock',
     description: 'Lock ......',
 
-    execute(message, msg) {
-        var logsChannel = message.channel.guild.channels.cache.get('846821373917134898')
+    execute(message, args) {
+        var logsChannel = message.channel.guild.channels.cache.get.find(r => r.name === "join-logs")
         if (message.guild.roles.cache.has('765389005084295229')) {
             const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
             channels.forEach(channel => {

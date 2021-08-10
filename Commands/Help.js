@@ -2,17 +2,17 @@ var Discord = require('discord.js')
 
 module.exports = {
 
-    name: 'Help',
+    name: 'help',
     description: 'Help .....',
 
-    execute(message, msg) {
+    execute(message, args) {
         message.delete()
         message.reply("A DM has been sent to you containing the list of all the commands this bot has.")
             .then((m) => m.delete({ timeout: 5000 }))
 
         const commandsembed = new Discord.MessageEmbed()
-            .setTitle('Commands')
-            .setDescription("List of commands for Ddogwildone1's SCP:F.")
+            .setTitle('Commands **(Outdated)**')
+            .setDescription("List of commands for Ddogwildone1's bot.")
             .addField("`>help`", "Displays this embed.")
             .addField("`>test`", "Ensures this bot is online.")
             .addField("`>userinfo (@user)`", "Displays specified user's information.")

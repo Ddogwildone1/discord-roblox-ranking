@@ -3,10 +3,10 @@ const suggestiontickets = new Map();
 
 module.exports = {
 
-    name: 'Suggestion',
+    name: 'suggestion',
     description: 'Suggestion ......',
 
-    async execute(message, msg, args) {
+    async execute(message, args) {
 
         if (suggestiontickets.has(message.author)) return message.member.send("You cannot create a new suggestion.")
 
@@ -34,7 +34,7 @@ module.exports = {
                         let response3 = await (message.channel.awaitMessages(filter, { max: 1 }))
                             .then(async (response3) => {
                                 if (response3.first().content.toLowerCase() === 'yes') {
-                                    const suggestionchannel = await message.channel.guild.channels.cache.get('787195905857683496')
+                                    const suggestionchannel = await message.channel.guild.channels.cache.find(r => r.name === "bot-commands")
                                     let suggestion = await suggestionchannel.send(suggestionembed)
                                     
                                     

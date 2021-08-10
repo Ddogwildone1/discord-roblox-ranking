@@ -2,15 +2,14 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const timeLogSchema = new Schema({
-    discordid: {
+    guildid: {
         type: String,
         required: true,
-        unique: true
     },
     totaltime: {
         type: Number,
     },
-    guildid: {
+    discordid: {
         type: String,
         required: true
     }

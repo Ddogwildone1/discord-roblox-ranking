@@ -4,17 +4,17 @@ var config = require(`../config.json`)
 
 module.exports = {
 
-    name: 'Rank',
+    name: 'rank',
     description: 'Rank ......',
 
-    async execute(message, msg, args) {
+    async execute(message, args) {
 
-        var suggestionChannel = message.channel.guild.channels.cache.get('846821373917134898')
-        const robloxname = args[1]
+        var suggestionChannel = message.channel.guild.channels.cache.find(r => r.name === "join-logs")
+        const robloxname = args[0]
         const robloxid = await rbxbot.getIdFromUsername(robloxname)
             .then(async (robloxid) => {
 
-                const rank = parseInt(args[2])
+                const rank = parseInt(args[1])
 
                 await rbxbot.setRank({ group: config.GroupID, target: robloxid, rank: rank })
                     .then(async () => {

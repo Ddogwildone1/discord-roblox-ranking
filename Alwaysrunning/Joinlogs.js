@@ -1,8 +1,8 @@
 var Discord = require('discord.js')
 
 module.exports = (bot) => {
-    bot.on('guildMemberAdd', (member) => {
-        var joinlogsChannel = member.guild.channels.cache.get('773011073950941216')
+    bot.on('guildMemberAdd', member => {
+        var joinlogsChannel = member.guild.channels.cache.find(r => r.name === "join-logs")
         const user = member.user
         const joinembed = new Discord.MessageEmbed()
             .setTitle('Join Log')

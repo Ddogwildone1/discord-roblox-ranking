@@ -1,15 +1,14 @@
 var Discord = require('discord.js');
-const { execute } = require('./UserInfo');
 const suggestiontickets = new Map();
 
 module.exports = {
 
-    name: 'Purge',
+    name: 'purge',
     description: 'Purge .....',
 
-    async execute(message, msg, args) {
-        var logsChannel = message.channel.guild.channels.cache.get('846821373917134898')
-        const Numberofmsg = parseInt(args[1])
+    async execute(message, args) {
+        var logsChannel = message.channel.guild.channels.cache.find(r => r.name === "join-logs")
+        const Numberofmsg = parseInt(args[0])
 
         if (Numberofmsg > 100) {
             message.delete()
