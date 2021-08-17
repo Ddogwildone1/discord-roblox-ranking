@@ -9,7 +9,7 @@ module.exports = {
 
     async execute(message, args) {
 
-        if (message.member.roles.cache.some(r => r.name === "Bot Admin")) {
+        if (!message.member.roles.cache.some(r => r.name === "Bot Admin")) {
             message.reply("You do not have the correct role(s) to run this command. (Bot Admin)")
             return;
         }
@@ -43,7 +43,10 @@ module.exports = {
                                 } else if (response1.first().content.toLowerCase() === 'none') {
                                     var mentionRole = 'none'
                                 } else {
-                                    var mentionRole = response1.first().content
+                                    var var1 = response1.first().content
+                                    let mentionRole = await message.guild.roles.cache.find((role) => {
+                                        return role.name === var1
+                                    })
                                 }
 
                                 const announcementembed = new Discord.MessageEmbed()
@@ -70,7 +73,7 @@ module.exports = {
                                                 let suggestion = await announcementChannel.send('@everyone,', announcementembed)
                                                 console.log('Used option @everyone!')
                                             } else {
-                                                let suggestion = await announcementChannel.send(mentionRole, announcementembed)
+                                                let suggestion = await announcementChannel.send(`@${mentionRole},`, announcementembed)
                                                 console.log('Used option role!')
                                             }
 
