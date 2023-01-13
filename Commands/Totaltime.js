@@ -3,11 +3,13 @@ var mongoose = require(`mongoose`)
 var config = require(`../config.json`)
 const mongo = require('../Alwaysrunning/mongo')
 const timeLogModel = require('../models/timeLog')
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'totaltime',
-    description: 'Totaltime ......',
+    description: 'Checks the total time a user has in the activity logger. You ust mention a user if you are checking someone else\'s total time.',
+    usage: `${prefix}totaltime [@(user)]`,
 
     async execute(message, args) {
         const user = message.mentions.users.first() || message.member.user;

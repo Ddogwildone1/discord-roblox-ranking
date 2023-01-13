@@ -4,12 +4,13 @@ var mongoose = require('mongoose')
 const verifiedUserModel = require('../models/verifiedUser')
 const { randomCode } = require(`../config.json`)
 const mongo = require('../Alwaysrunning/mongo')
-
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'verify',
-    description: 'Verify ......',
+    description: `Used in conjunction with ${prefix}getroles, links roblox account with discord account.`,
+    usage: `${prefix}verify`,
 
     async execute(message, args) {
         const number = Math.floor(Math.random() * 24) + 1

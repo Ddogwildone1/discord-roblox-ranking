@@ -2,11 +2,13 @@ var Discord = require('discord.js')
 const ytdl = require('ytdl-core')
 const ytSearch = require('yt-search')
 const ffmpeg = require('ffmpeg-static')
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'play',
-    description: 'Play ......',
+    description: `Joins the current Voice Chat, then starts playing the specified song from YouTube. To make it stop early, use ${prefix}leave.`,
+    usage: `${prefix}play (title**/**link)`,
 
     async execute(message, args) {
         const voiceChannel = message.member.voice.channel

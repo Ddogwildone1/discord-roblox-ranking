@@ -1,13 +1,15 @@
 var Discord = require('discord.js');
 const suggestiontickets = new Map();
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'purge',
-    description: 'Purge .....',
+    description: 'Removes the specified amount of messages from a channel.',
+    usage: `${prefix}purge (number)`,
 
     async execute(message, args) {
-        var logsChannel = message.channel.guild.channels.cache.find(r => r.name === "join-logs")
+        var logsChannel = message.channel.guild.channels.cache.find(r => r.name === "bot-logs")
         const Numberofmsg = parseInt(args[0])
 
         if (Numberofmsg > 100) {

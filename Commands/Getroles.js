@@ -12,12 +12,13 @@ const roleListTest = [
     "859279006683889664",
     "860182636369936404"
 ]
-
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'getroles',
-    description: 'Getroles ......',
+    description: `**[Does not work currently]** Adds or removes a user's roles depending on what rank they are in the group. Used in conjunction with ${prefix}verify, it only needs to be used once.`,
+    usage: `${prefix}getroles`,
 
     async execute(message, args) {
         const currentDiscordId = message.member.id

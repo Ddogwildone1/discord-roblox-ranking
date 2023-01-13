@@ -1,22 +1,23 @@
 var Discord = require('discord.js')
 const ignored = new Set([
-    '846925095339163668'
 ])
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'unlock',
-    description: 'Unlock ......',
+    description: `Unlocks all but specified channels if ${prefix}lock was used.`,
+    usage: `${prefix}unlock`,
 
     execute(message, args) {
 
-        if (message.guild.roles.cache.has('765389005084295229')) {
-            var logsChannel = message.channel.guild.channels.cache.find(r => r.name === "join-logs")
+        //if (message.guild.roles.cache.has('765389005084295229')) {
+            var logsChannel = message.channel.guild.channels.cache.find(r => r.name === "bot-logs")
             const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
             channels.forEach(channel => {
 
                 if (!ignored.has(channel.id)) {
-                    channel.updateOverwrite('765389005084295229', {
+                    channel.updateOverwrite('772521066282221588', {
                         SEND_MESSAGES: null,
                         SPEAK: null,
                         ADD_REACTIONS: null
@@ -36,7 +37,7 @@ module.exports = {
                 .setTimestamp()
 
             logsChannel.send(unlockembed)
-        }
+        //}
     }
 
 }

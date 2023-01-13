@@ -3,11 +3,13 @@ var mongoose = require(`mongoose`)
 var config = require(`../config.json`)
 const mongo = require('../Alwaysrunning/mongo')
 const timeLogModel = require('../models/timeLog')
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'changetime',
-    description: 'Changetime ......',
+    description: 'Changes a user\'s time in the activity logger. You must mention the user, typing out their discord name and tag doesn\'t work at the moment.',
+    usage: `${prefix}changetime @(user) (+**/**-) (number)`,
 
     async execute(message, args) {
         var logsChannel = message.channel.guild.channels.cache.find(r => r.name === "join-logs")

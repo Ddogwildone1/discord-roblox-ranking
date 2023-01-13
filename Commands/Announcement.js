@@ -1,18 +1,20 @@
 var Discord = require('discord.js')
 const announcementtickets = new Map();
 var announcementChannel = undefined
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'announcement',
-    description: 'Announcement ......',
+    description: 'Sends an announcement to the specified channel. You will add the title, description, and who to ping once the command is run.',
+    usage: `${prefix}announcement #(channel)`,
 
     async execute(message, args) {
 
-        if (!message.member.roles.cache.some(r => r.name === "Bot Admin")) {
+        /*if (!message.member.roles.cache.some(r => r.name === "Bot Admin")) {
             message.reply("You do not have the correct role(s) to run this command. (Bot Admin)")
             return;
-        }
+        }*/
 
         if (announcementtickets.has(message.author)) return message.reply("Announcement cooldown. (30 seconds)")
         const filter = (m) => m.author.id === message.author.id

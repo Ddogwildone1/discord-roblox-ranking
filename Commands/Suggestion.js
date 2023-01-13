@@ -1,10 +1,12 @@
 var Discord = require('discord.js')
 const suggestiontickets = new Map();
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'suggestion',
-    description: 'Suggestion ......',
+    description: 'Sends a suggestion embed into the specified channel. Title and description are specified after you run the command.',
+    usage: `${prefix}suggestion`,
 
     async execute(message, args) {
 

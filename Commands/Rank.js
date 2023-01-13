@@ -1,11 +1,13 @@
 var Discord = require('discord.js')
 var rbxbot = require(`noblox.js`)
 var config = require(`../config.json`)
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'rank',
-    description: 'Rank ......',
+    description: 'Ranks a user in the group. Coming soon: ranking users in another group.',
+    usage: `${prefix}rank (username) (number)`,
 
     async execute(message, args) {
 

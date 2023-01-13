@@ -4,6 +4,7 @@ var config = require(`../config.json`)
 const mongo = require('../Alwaysrunning/mongo')
 const timeLogModel = require('../models/timeLog')
 const checkedInModel = require('../models/checkedIn')
+const { prefix } = require('../config.json');
 
 function getTimestamp() {
   var timestamp = Date.now()
@@ -13,7 +14,8 @@ function getTimestamp() {
 module.exports = {
 
   name: 'checkin',
-  description: 'Checkin ......',
+  description: 'Starts a timer for the activity logger. Timer will continue to run even if the bot goes offline.',
+  usage: `${prefix}checkin`,
 
   async execute(message, args) {
     await mongo().then(async (mongoose) => {

@@ -1,9 +1,11 @@
 var Discord = require('discord.js')
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'userinfo',
-    description: 'UserInfo ......',
+    description: 'Grabs info from your user, or if someone else is specified, them.',
+    usage: `${prefix}userinfo [@(user)]`,
 
     execute(message, args) {
         const member = message.mentions.members.first() || message.member;

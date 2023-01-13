@@ -4,14 +4,16 @@ var config = require(`../config.json`)
 const mongo = require('../Alwaysrunning/mongo')
 const timeLogModel = require('../models/timeLog')
 const checkedInModel = require('../models/checkedIn')
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'resettime',
-    description: 'Resettime ......',
+    description: 'Removes all entries from the activity logger for that guild.',
+    usage: `${prefix}resettime`,
 
     async execute(message, args) {
-        var logsChannel = message.channel.guild.channels.cache.find(r => r.name === "join-logs")
+        var logsChannel = message.channel.guild.channels.cache.find(r => r.name === "bot-logs")
         const filter = (m) => m.author.id === message.author.id
         let msg1 = await message.reply("Are you sure you want to reset the times of all members in this guild? Respond with Yes/No.")
         let response1 = await (message.channel.awaitMessages(filter, { max: 1 }))

@@ -1,37 +1,22 @@
 var Discord = require('discord.js')
 const ignored = new Set([
-    '765389005084295233',
-    '772964685463945227',
-    '772965085077307403',
-    '772994537881600001',
-    '773007924842070066',
-    '773007969498955797',
-    '787352328763736095',
-    '782753075239845908',
-    '772960807876689941',
-    '787196017178443776',
-    '773011073950941216',
-    '787062578182488064',
-    '787064068103602238',
-    '787064111858188318',
-    '787064166287933441',
-    '802065334588801054'
 ])
-
+const { prefix } = require('../config.json');
 
 module.exports = {
 
     name: 'lock',
-    description: 'Lock ......',
+    description: `Sets all channels except specified channels so all users cannot speak in them. To unlock all of the channels after this is used, use ${prefix}unlock.`,
+    usage: `${prefix}lock`,
 
     execute(message, args) {
-        var logsChannel = message.channel.guild.channels.cache.get.find(r => r.name === "join-logs")
-        if (message.guild.roles.cache.has('765389005084295229')) {
+        var logsChannel = message.channel.guild.channels.cache.find(r => r.name === "bot-logs")
+        //if (message.guild.roles.cache.has('765389005084295229')) {
             const channels = message.guild.channels.cache.filter(ch => ch.type !== 'category');
             channels.forEach(channel => {
 
                 if (!ignored.has(channel.id)) {
-                    channel.updateOverwrite('765389005084295229', {
+                    channel.updateOverwrite(message.member.roles.cache.some(r => r.name === "everyone"), {
                         SEND_MESSAGES: false,
                         SPEAK: false,
                         ADD_REACTIONS: false
@@ -52,7 +37,7 @@ module.exports = {
 
             logsChannel.send(lockembed)
 
-        }
+        //}
     }
 
 }

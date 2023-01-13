@@ -4,6 +4,7 @@ var config = require(`../config.json`)
 const mongo = require('../Alwaysrunning/mongo')
 const timeLogModel = require('../models/timeLog')
 const checkedInModel = require('../models/checkedIn')
+const { prefix } = require('../config.json');
 
 function getTimestamp() {
   var timestamp = Date.now()
@@ -13,7 +14,8 @@ function getTimestamp() {
 module.exports = {
 
   name: 'checkout',
-  description: 'Checkout ......',
+  description: 'Stops the timer for the activity logger.',
+  usage: `${prefix}checkout`,
 
   async execute(message, args) {
     await mongo().then(async (mongoose) => {
